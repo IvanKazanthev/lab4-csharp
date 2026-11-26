@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -96,6 +96,13 @@ class Program
 
         for (int i = 0; i < n; i++)
             films.Add(ReadText("Фильм: "));
+
+        Console.WriteLine("Список фильмов:");
+
+        for (int i = 0; i < films.Count; i++)
+        {
+            Console.WriteLine((i + 1) + ". " + films[i]);
+        }
 
         int m = ReadInt("Количество зрителей: ", 1);
         List<HashSet<int>> viewers =
