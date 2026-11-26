@@ -1,15 +1,16 @@
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 
 class Tasks
 {
-    public static void RemoveValue(
-        List<int> list, int value)
+    public static void RemoveValue<T>(
+        List<T> list, T value)
     {
         for (int i = list.Count - 1; i >= 0; i--)
         {
-            if (list[i] == value)
+            if (EqualityComparer<T>.Default.Equals(list[i], value))
             {
                 list.RemoveAt(i);
             }
