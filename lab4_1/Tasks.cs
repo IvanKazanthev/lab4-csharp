@@ -9,24 +9,26 @@ class Tasks
     {
         for (int i = list.Count - 1; i >= 0; i--)
         {
-            if (EqualityComparer<T>.Default.Equals(list[i], value))
+            if (EqualityComparer<T>.Default.Equals(
+                list[i], value))
             {
                 list.RemoveAt(i);
             }
         }
     }
 
-    public static void ReverseBetween(
-        LinkedList<int> list, int value)
+    public static void ReverseBetween<T>(
+        LinkedList<T> list, T value)
     {
-        LinkedListNode<int>? first = null;
-        LinkedListNode<int>? last = null;
+        LinkedListNode<T>? first = null;
+        LinkedListNode<T>? last = null;
 
-        LinkedListNode<int>? node = list.First;
+        LinkedListNode<T>? node = list.First;
 
         while (node != null)
         {
-            if (node.Value == value)
+            if (EqualityComparer<T>.Default.Equals(
+                node.Value, value))
             {
                 if (first == null)
                 {
@@ -45,13 +47,13 @@ class Tasks
             return;
         }
 
-        LinkedListNode<int>? left = first.Next;
-        LinkedListNode<int>? right = last.Previous;
+        LinkedListNode<T>? left = first.Next;
+        LinkedListNode<T>? right = last.Previous;
 
         while (left != null && right != null &&
                left != right && left.Previous != right)
         {
-            int temp = left.Value;
+            T temp = left.Value;
             left.Value = right.Value;
             right.Value = temp;
 
@@ -136,7 +138,7 @@ class Tasks
         return result;
     }
 
-    static void CountWord(
+    private static void CountWord(
         string word,
         string alphabet,
         Dictionary<char, int> counts)
