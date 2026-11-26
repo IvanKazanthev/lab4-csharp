@@ -62,16 +62,16 @@ class Tasks
         }
     }
 
-    public static void ClassifyFilms(
-        List<string> films,
+    public static void ClassifyFilms<T>(
+        List<T> films,
         List<HashSet<int>> viewers,
-        out List<string> all,
-        out List<string> some,
-        out List<string> none)
+        out List<T> all,
+        out List<T> some,
+        out List<T> none)
     {
-        all = new List<string>();
-        some = new List<string>();
-        none = new List<string>();
+        all = new List<T>();
+        some = new List<T>();
+        none = new List<T>();
 
         for (int i = 0; i < films.Count; i++)
         {
@@ -138,7 +138,7 @@ class Tasks
         return result;
     }
 
-    private static void CountWord(
+    static void CountWord(
         string word,
         string alphabet,
         Dictionary<char, int> counts)
