@@ -97,8 +97,7 @@ class Program
         for (int i = 0; i < n; i++)
             films.Add(ReadText("Фильм: "));
 
-        Console.WriteLine("Список фильмов:");
-
+        // Выводим фильмы с номерами
         for (int i = 0; i < films.Count; i++)
         {
             Console.WriteLine((i + 1) + ". " + films[i]);
